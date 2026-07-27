@@ -12,11 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Theos
+      - name: Install build tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y fakeroot rsync curl git perl
-          git clone --recursive https://github.com/theos/theos.git $HOME/theos
+          sudo apt-get install -y \
+            fakeroot rsync curl git perl wget sudo \
+            build-essential clang make lld \
+            xz-utils bison flex python3 libtinfo6 libssl-dev
+
+      - name: Install Theos (official installer, sets up Linux toolchain)
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
           echo "THEOS=$HOME/theos" >> $GITHUB_ENV
 
       - name: Install missing SDK (theos-headers / iOS SDK stub)
@@ -29,11 +35,10 @@ jobs:
       - name: Build package
         run: |
           export THEOS=$HOME/theos
-          cd mytweak
           make clean package FINALPACKAGE=1
 
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
           name: CallVoiceFX-deb
-          path: mytweak/packages/*.deb
+          path: packages/*.deb
