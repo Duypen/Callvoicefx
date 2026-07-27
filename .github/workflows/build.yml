@@ -35,11 +35,12 @@ jobs:
       - name: Build package
         run: |
           export THEOS=$HOME/theos
-          cd "mytweak 2"
+          cp -r "mytweak 2" "$HOME/mytweak_build"
+          cd "$HOME/mytweak_build"
           make clean package FINALPACKAGE=1
 
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v4
         with:
           name: CallVoiceFX-deb
-          path: "mytweak 2/packages/*.deb"
+          path: /home/runner/mytweak_build/packages/*.deb
