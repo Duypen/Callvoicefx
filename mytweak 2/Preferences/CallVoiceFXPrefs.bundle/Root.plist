@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>CallVoiceFX</string>
+			<key>footerText</key>
+			<string>Đổi giọng khi gọi + phát nhạc qua mic. Chỉ hoạt động trong cuộc gọi thực.</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Bật CallVoiceFX</string>
+			<key>key</key>
+			<string>CVFEnabled</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.yourname.callvoicefx</string>
+			<key>PostNotification</key>
+			<string>com.yourname.callvoicefx/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Đổi giọng</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>label</key>
+			<string>Cao độ (pitch)</string>
+			<key>key</key>
+			<string>CVFPitchCents</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>min</key>
+			<integer>-1200</integer>
+			<key>max</key>
+			<integer>1200</integer>
+			<key>defaults</key>
+			<string>com.yourname.callvoicefx</string>
+			<key>PostNotification</key>
+			<string>com.yourname.callvoicefx/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Phát nhạc qua mic</string>
+			<key>footerText</key>
+			<string>Copy file nhạc (mp3/m4a) vào /var/mobile/Media/CallVoiceFX/ rồi chọn ở đây.</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Bật phát nhạc qua mic</string>
+			<key>key</key>
+			<string>CVFMusicEnabled</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.yourname.callvoicefx</string>
+			<key>PostNotification</key>
+			<string>com.yourname.callvoicefx/reload</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>Chọn file nhạc</string>
+			<key>detail</key>
+			<string>CVFMusicPickerController</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Lặp lại nhạc</string>
+			<key>key</key>
+			<string>CVFMusicLoop</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.yourname.callvoicefx</string>
+			<key>PostNotification</key>
+			<string>com.yourname.callvoicefx/reload</string>
+		</dict>
+
+	</array>
+	<key>title</key>
+	<string>CallVoiceFX</string>
+</dict>
+</plist>

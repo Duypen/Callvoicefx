@@ -1,0 +1,9 @@
+Package: com.yourname.callvoicefx
+Name: CallVoiceFX
+Depends: mobilesubstrate, preferenceloader
+Version: 1.0
+Architecture: iphoneos-arm64
+Description: Real-time voice effect + music-through-mic for calls (original implementation)
+Section: Tweaks
+Author: You
+Maintainer: You
